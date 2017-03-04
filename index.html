@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+
+</head>
+<body>
+    <form id="user_form" method="post">
+        <p>名称</p><input class="normal" id="username" name="username" type="text">
+        <button type="submit" value="Submit" id="identify">验证</button>
+        <div>
+            <p id="hintmessage">必填,长度为4 ~ 16个字符</p>
+            <p id="nullmessage">姓名不能为空</p>
+            <p id="rightmessage">名称格式正确</p>
+        </div>
+    </form>
+    <script src="js/index.js"></script>
+</body>
+</html>

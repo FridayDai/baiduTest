@@ -1,0 +1,58 @@
+@import "global.css";
+p {
+    float: left;
+    line-height: 30px;
+    height: 30px;
+    font-size: 18px;
+}
+
+#username {
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+#identify {
+    height: 30px;
+    background-color: #08c;
+    color: white;
+    border-radius: 5px;
+    width: 60px;
+    margin-left: 10px;
+}
+
+#user_form {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#hintmessage {
+    color: #cccccc;
+    font-size: 14px;
+    margin-left: 45px;
+}
+
+#nullmessage {
+    color: red;
+    display: none;
+    font-size: 14px;
+    margin-left: 45px;
+}
+
+#rightmessage {
+    color: forestgreen;
+    display: none;
+    font-size: 14px;
+    margin-left: 45px;
+}
+
+.normal {
+    border: 1px solid #cccccc;
+}
+.wrong {
+    border: 1px solid red;
+}
+.right {
+    border: 1px solid forestgreen;
+}
