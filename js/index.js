@@ -4,13 +4,13 @@
 
 function getTrueLength(string) {
     var len = 0;
-    var str = string.replace(/\s/g,''); // 去除所有空格
+    var str = string.replace(/\s/g,''); // 去除所有空格 trim()能去掉两边空格
 
     for(var i = 0; i < str.length; i++) {
         if(str.charCodeAt(i) > 256) {
-            len += 2;
+            len += 2; //中文
         } else if(str.charCodeAt(i) < 256) {
-            len += 1;
+            len += 1; //英文
         }
     }
     return len;
