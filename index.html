@@ -8,12 +8,38 @@
 </head>
 <body>
     <form id="user_form" method="post">
-        <p>名称</p><input class="normal" id="username" name="username" type="text">
-        <button type="submit" value="Submit" id="identify">验证</button>
         <div>
-            <p id="hintmessage">必填,长度为4 ~ 16个字符</p>
-            <p id="nullmessage">姓名不能为空</p>
-            <p id="rightmessage">名称格式正确</p>
+            <label class='formhead' for="username">名称</label><input class="normal" id="username" name="username" type="text" onfocus="showMessage(this)" onblur="hideMessage(this)">
+            <p class="message hint">必填,长度为4 ~ 16个字符</p>
+            <p class="null message">姓名不能为空</p>
+            <p class="right message">名称格式正确</p>
+        </div>
+        <div>
+            <label class='formhead' for="password">密码</label><input class='normal' id="password" name="password" type="text" onfocus="showMessage(this)" onblur="hideMessage(this)">
+            <p class="hint message">必填,长度为4 ~ 16个字符</p>
+            <p class="null message">姓名不能为空</p>
+            <p class="right message">名称格式正确</p>
+        </div>
+        <div>
+            <label class='formhead' for="password2">密码确认</label><input  class='normal' id="password2" name="password2" type="text" onfocus="showMessage(this)" onblur="hideMessage(this)">
+            <p class="hint message">必填,长度为4 ~ 16个字符</p>
+            <p class="null message">姓名不能为空</p>
+            <p class="right message">名称格式正确</p>
+        </div>
+        <div>
+            <label class='formhead' for="email">邮箱</label><input class='normal' id='email' name="email" type="text" onfocus="showMessage(this)" onblur="hideMessage(this)">
+            <p class="message hint">必填,长度为4 ~ 16个字符</p>
+            <p class="message null">姓名不能为空</p>
+            <p class="message right">名称格式正确</p>
+        </div>
+        <div>
+            <label class='formhead' for="phone">手机</label><input class='normal' id='phone' name="phone" type="text" onfocus="showMessage(this)" onblur="hideMessage(this)">
+            <p class="hint message">必填,长度为4 ~ 16个字符</p>
+            <p class="null message">姓名不能为空</p>
+            <p class="right message">名称格式正确</p>
+        </div>
+        <div>
+            <button type="submit" value="Submit" id="identify">验证</button>
         </div>
     </form>
     <script src="js/index.js"></script>

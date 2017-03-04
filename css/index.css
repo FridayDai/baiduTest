@@ -1,16 +1,12 @@
 @import "global.css";
 p {
-    float: left;
     line-height: 30px;
     height: 30px;
     font-size: 18px;
 }
 
-#username {
-    height: 30px;
-    width: 300px;
-    border-radius: 5px;
-    margin-left: 10px;
+form div {
+    margin-bottom: 10px;
 }
 
 #identify {
@@ -19,7 +15,6 @@ p {
     color: white;
     border-radius: 5px;
     width: 60px;
-    margin-left: 10px;
 }
 
 #user_form {
@@ -27,32 +22,33 @@ p {
     margin-left: 20px;
 }
 
-#hintmessage {
+.message {
+    display: none;
+    font-size: 14px;
+    margin-left: 60px;
+}
+
+.hint {
     color: #cccccc;
-    font-size: 14px;
-    margin-left: 45px;
 }
 
-#nullmessage {
+.null {
     color: red;
-    display: none;
-    font-size: 14px;
-    margin-left: 45px;
 }
 
-#rightmessage {
+.right {
     color: forestgreen;
-    display: none;
-    font-size: 14px;
-    margin-left: 45px;
 }
 
 .normal {
     border: 1px solid #cccccc;
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+    margin-left: 10px;
 }
-.wrong {
-    border: 1px solid red;
-}
-.right {
-    border: 1px solid forestgreen;
+
+.formhead {
+    display: inline-block;
+    width: 50px;
 }
