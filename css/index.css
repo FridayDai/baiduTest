@@ -48,6 +48,22 @@ form div {
     margin-left: 10px;
 }
 
+.warning {
+    border: 1px solid red;
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.correct {
+    border: 1px solid forestgreen;
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
 .formhead {
     display: inline-block;
     width: 50px;
