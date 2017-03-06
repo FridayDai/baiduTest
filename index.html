@@ -33,7 +33,7 @@
             <p class="message right">邮箱正确</p>
         </div>
         <div>
-            <label class='formhead' for="phone">手机</label><input class='normal' id='phone' name="phone" type="text" onfocus="showMessage(this)" onblur="verifyPhone(this)">
+            <label class='formhead' for="phone">手机</label><input class='normal' id='phone' name="phone" type="text" maxlength="11" onfocus="showMessage(this)" onblur="verifyPhone(this)" onkeypress='return onlyNum(event)'>
             <p class="hint message">请填写您的手机号</p>
             <p class="null message">没填对啊大哥</p>
             <p class="right message">填写正确</p>
