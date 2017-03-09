@@ -2,6 +2,12 @@
  * Created by xplusz on 2/27/17.
  */
 
+var userFlag = false;
+var passwordFlag = false;
+var password2Flag = false;
+var emailFlag = false;
+var phoneFlag = false;
+
 function getTrueLength(str) {
     var len = 0;
     var str = str.replace(/\s/g,'');
@@ -38,16 +44,19 @@ function verifyUsername(obj) {
         nullmessage.style.display = '-webkit-box';
         rightmessage.style.display = 'none';
         username.className = 'warning';
+        userFlag = false;
     } else if(username_length > 16 || username_length < 4) {
         hintmessage.style.display = '-webkit-box';
         nullmessage.style.display = 'none';
         rightmessage.style.display = 'none';
         username.className = 'warning';
+        userFlag = false;
     } else {
         hintmessage.style.display = 'none';
         nullmessage.style.display = 'none';
         rightmessage.style.display = '-webkit-box';
         username.className = 'correct';
+        userFlag = true;
     }
 
 }
@@ -64,11 +73,13 @@ function verifyPassword(obj){
         nullmessage.style.display = '-webkit-box';
         rightmessage.style.display = 'none';
         password.className = 'warning';
+        passwordFlag = false;
     } else {
         hintmessage.style.display = 'none';
         nullmessage.style.display = 'none';
         rightmessage.style.display = '-webkit-box';
         password.className = 'correct';
+        passwordFlag = true;
     }
 }
 
@@ -84,11 +95,13 @@ function verifyPassword2(obj) {
         nullmessage.style.display = 'none';
         rightmessage.style.display = '-webkit-box';
         password2.className = 'correct';
+        password2Flag = true;
     } else {
         hintmessage.style.display = 'none';
         nullmessage.style.display = '-webkit-box';
         rightmessage.style.display = 'none';
         password2.className = 'warning';
+        password2Flag = false;
     }
 }
 
@@ -105,11 +118,13 @@ function verifyEmail(obj) {
         nullmessage.style.display = 'none';
         rightmessage.style.display = '-webkit-box';
         email.className = 'correct';
+        emailFlag = true;
     } else {
         hintmessage.style.display = 'none';
         nullmessage.style.display = '-webkit-box';
         rightmessage.style.display = 'none';
         email.className = 'warning';
+        emailFlag = false;
     }
 }
 
@@ -128,11 +143,13 @@ function verifyPhone(obj) {
         nullmessage.style.display = 'none';
         rightmessage.style.display = '-webkit-box';
         phone.className = 'correct';
+        phoneFlag = true;
     } else {
         hintmessage.style.display = 'none';
         nullmessage.style.display = '-webkit-box';
         rightmessage.style.display = 'none';
         phone.className = 'warning';
+        phoneFlag = false;
     }
 }
 
@@ -143,3 +160,16 @@ function onlyNum(evt) {
 
     return true;
 }
+
+var identify = document.getElementById("identify");
+
+identify.onclick = function(e) {
+    var allFlag = userFlag && passwordFlag && password2Flag && emailFlag && phoneFlag;
+    if(allFlag == true) {
+        alert("haha");
+        e.preventDefault();
+    } else {
+        alert("nonono");
+        e.preventDefault();
+    }
+};
