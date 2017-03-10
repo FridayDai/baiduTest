@@ -8,38 +8,28 @@
 </head>
 <body>
     <form id="user_form" method="post">
-        <div>
-            <label class='formhead' for="username">名称</label><input class="normal" id="username" name="username" type="text" onfocus="showMessage(this)" onblur="verifyUsername(this)">
-            <p class="message hint">必填,长度为4 ~ 16个字符</p>
-            <p class="null message">姓名不能为空</p>
-            <p class="right message">名称格式正确</p>
+        <div class="form-group">
+            <div class="form-item">
+                <input type="radio" id="radio1" value="student" onclick="clickRadio1(this)"><label for="radio1">在校生</label>
+                <input type="radio" id="radio2" value="non-student" onclick="clickRadio2(this)"><label for="radio2">非在校生</label>
+            </div>
         </div>
-        <div>
-            <label class='formhead' for="password">密码</label><input class='normal' id="password" name="password" type="password" onfocus="showMessage(this)" onblur="verifyPassword(this)">
-            <p class="hint message">随便填</p>
-            <p class="null message">密码不能为空</p>
-            <p class="right message">密码可用</p>
-        </div>
-        <div>
-            <label class='formhead' for="password2">密码确认</label><input  class='normal' id="password2" name="password2" type="password" onfocus="showMessage(this)" onblur="verifyPassword2(this)">
-            <p class="hint message">再次输入相同密码</p>
-            <p class="null message">不相同啊密码</p>
-            <p class="right message">密码相同</p>
-        </div>
-        <div>
-            <label class='formhead' for="email">邮箱</label><input class='normal' id='email' name="email" type="text" onfocus="showMessage(this)" onblur="verifyEmail(this)">
-            <p class="message hint">你懂的</p>
-            <p class="message null">邮箱格式错误</p>
-            <p class="message right">邮箱正确</p>
-        </div>
-        <div>
-            <label class='formhead' for="phone">手机</label><input class='normal' id='phone' name="phone" type="text" maxlength="11" onfocus="showMessage(this)" onblur="verifyPhone(this)" onkeypress='return onlyNum(event)'>
-            <p class="hint message">请填写您的手机号</p>
-            <p class="null message">没填对啊大哥</p>
-            <p class="right message">填写正确</p>
-        </div>
-        <div>
-            <button type="submit" value="Submit" id="identify">验证</button>
+        <div class="form-group">
+            <div class="form-item hidden" id="radio1_info">
+                <span>学校</span>
+                <select name="city" id="city" onChange="set_city(this,this.form.school)">
+                    <option value="0">请选择城市</option>
+                    <option value="beijing">北京</option>
+                    <option value="nanjing">南京</option>
+                </select>
+                <select name="school" id="school">
+                    <option value="0">请选择学校</option>
+                </select>
+            </div>
+
+            <div class="form-item hidden" id="radio2_info">
+                <span>工作单位</span><input type="text">
+            </div>
         </div>
     </form>
     <script src="js/index.js"></script>

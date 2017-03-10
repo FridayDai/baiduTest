@@ -1,70 +1,12 @@
 @import "global.css";
-p {
-    line-height: 30px;
-    height: 30px;
-    font-size: 18px;
-}
-
-form div {
-    margin-bottom: 10px;
-}
-
-#identify {
-    height: 30px;
-    background-color: #08c;
-    color: white;
-    border-radius: 5px;
-    width: 60px;
-}
-
-#user_form {
-    margin-top: 20px;
-    margin-left: 20px;
-}
-
-.message {
-    display: none;
-    font-size: 14px;
-    margin-left: 60px;
-}
-
-.hint {
-    color: #cccccc;
-}
-
-.null {
-    color: red;
-}
-
-.right {
-    color: forestgreen;
-}
-
-.normal {
+input {
     border: 1px solid #cccccc;
-    height: 30px;
-    width: 300px;
-    border-radius: 5px;
-    margin-left: 10px;
 }
 
-.warning {
-    border: 1px solid red;
-    height: 30px;
-    width: 300px;
-    border-radius: 5px;
-    margin-left: 10px;
+.form-group {
+    padding: 10px 0;
 }
 
-.correct {
-    border: 1px solid forestgreen;
-    height: 30px;
-    width: 300px;
-    border-radius: 5px;
-    margin-left: 10px;
-}
-
-.formhead {
-    display: inline-block;
-    width: 50px;
+.hidden {
+    display: none;
 }

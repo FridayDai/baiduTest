@@ -1,175 +1,54 @@
-/**
- * Created by xplusz on 2/27/17.
- */
+var radio1 = document.getElementById("radio1");
+var radio2 = document.getElementById("radio2");
 
-var userFlag = false;
-var passwordFlag = false;
-var password2Flag = false;
-var emailFlag = false;
-var phoneFlag = false;
+var radio1_info = document.getElementById("radio1_info");
+var radio2_info = document.getElementById("radio2_info");
 
-function getTrueLength(str) {
-    var len = 0;
-    var str = str.replace(/\s/g,'');
-    for(var i=0; i < str.length; i++) {
-        if(str.charCodeAt(i) < 256) {
-            len += 1;
-        } else if (str.charCodeAt(i) >= 256) {
-            len += 2;
-        }
+function clickRadio1(obj) {
+    if(radio2_info.className.indexOf("hidden") == -1) {
+        radio2_info.className += " " + "hidden";
     }
-    return len;
-}
+    radio2.checked = false;
 
-function showMessage(obj) {
-    var hintmessage = obj.nextElementSibling;
-    var nullmessage = hintmessage.nextElementSibling;
-    var rightmessage = nullmessage.nextElementSibling;
-
-    if(nullmessage.style.display == '' && rightmessage.style.display == ''){
-        hintmessage.style.display = "-webkit-box";
+    if(obj.checked == true && radio1_info.className.indexOf("hidden")>-1) {
+        radio1_info.className = radio1_info.className.replace(/\ hidden/,"");
     }
 }
 
-
-function verifyUsername(obj) {
-    var hintmessage = obj.nextElementSibling;
-    var nullmessage = hintmessage.nextElementSibling;
-    var rightmessage = nullmessage.nextElementSibling;
-
-    var username = document.getElementById("username");
-    var username_length = getTrueLength(username.value);
-    if(username_length == 0) {
-        hintmessage.style.display = 'none';
-        nullmessage.style.display = '-webkit-box';
-        rightmessage.style.display = 'none';
-        username.className = 'warning';
-        userFlag = false;
-    } else if(username_length > 16 || username_length < 4) {
-        hintmessage.style.display = '-webkit-box';
-        nullmessage.style.display = 'none';
-        rightmessage.style.display = 'none';
-        username.className = 'warning';
-        userFlag = false;
-    } else {
-        hintmessage.style.display = 'none';
-        nullmessage.style.display = 'none';
-        rightmessage.style.display = '-webkit-box';
-        username.className = 'correct';
-        userFlag = true;
+function clickRadio2(obj) {
+    if(radio1_info.className.indexOf("hidden") == -1) {
+        radio1_info.className += " " + "hidden";
     }
+    radio1.checked = false;
 
-}
-
-function verifyPassword(obj){
-    var hintmessage = obj.nextElementSibling;
-    var nullmessage = hintmessage.nextElementSibling;
-    var rightmessage = nullmessage.nextElementSibling;
-
-    var password = document.getElementById("password");
-    //var username_length = getTrueLength(username.value);
-    if(password.value.length == 0) {
-        hintmessage.style.display = 'none';
-        nullmessage.style.display = '-webkit-box';
-        rightmessage.style.display = 'none';
-        password.className = 'warning';
-        passwordFlag = false;
-    } else {
-        hintmessage.style.display = 'none';
-        nullmessage.style.display = 'none';
-        rightmessage.style.display = '-webkit-box';
-        password.className = 'correct';
-        passwordFlag = true;
+    if(obj.checked == true && radio2_info.className.indexOf("hidden")>-1) {
+        radio2_info.className = radio2_info.className.replace(/\ hidden/,"");
     }
 }
 
-function verifyPassword2(obj) {
-    var hintmessage = obj.nextElementSibling;
-    var nullmessage = hintmessage.nextElementSibling;
-    var rightmessage = nullmessage.nextElementSibling;
-    var password = document.getElementById("password");
-    var password2 = document.getElementById("password2");
-    
-    if(password.value == password2.value && password2.value!=='') {
-        hintmessage.style.display = 'none';
-        nullmessage.style.display = 'none';
-        rightmessage.style.display = '-webkit-box';
-        password2.className = 'correct';
-        password2Flag = true;
-    } else {
-        hintmessage.style.display = 'none';
-        nullmessage.style.display = '-webkit-box';
-        rightmessage.style.display = 'none';
-        password2.className = 'warning';
-        password2Flag = false;
+var cities = new Object();
+cities['beijing']=new Array('石家庄', '张家口市', '承德市', '秦皇岛市', '唐山市', '廊坊市', '保定市', '沧州市', '衡水市', '邢台市', '邯郸市');
+cities['nanjing']=new Array('太原市', '大同市', '朔州市', '阳泉市', '长治市', '晋城市', '忻州地区', '吕梁地区', '晋中市', '临汾地区', '运城地区');
+
+function set_city(city, school)
+{
+    var cv, sv;
+    var i, ii;
+
+    cv=city.value;
+    sv=school.value;
+
+    school.length=1;
+
+    if(cv=='0') return;
+    if(typeof(cities[cv])=='undefined') return;
+
+    for(i=0; i<cities[cv].length; i++)
+    {
+        ii = i+1;
+        school.options[ii] = new Option();
+        school.options[ii].text = cities[cv][i];
+        school.options[ii].value = cities[cv][i];
     }
+
 }
-
-function verifyEmail(obj) {
-    var hintmessage = obj.nextElementSibling;
-    var nullmessage = hintmessage.nextElementSibling;
-    var rightmessage = nullmessage.nextElementSibling;
-
-    var email = document.getElementById("email");
-    var reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
-
-    if(reg.test(email.value)) {
-        hintmessage.style.display = 'none';
-        nullmessage.style.display = 'none';
-        rightmessage.style.display = '-webkit-box';
-        email.className = 'correct';
-        emailFlag = true;
-    } else {
-        hintmessage.style.display = 'none';
-        nullmessage.style.display = '-webkit-box';
-        rightmessage.style.display = 'none';
-        email.className = 'warning';
-        emailFlag = false;
-    }
-}
-
-function verifyPhone(obj) {
-    var hintmessage = obj.nextElementSibling;
-    var nullmessage = hintmessage.nextElementSibling;
-    var rightmessage = nullmessage.nextElementSibling;
-
-    var phone = document.getElementById("phone");
-    var reg = /^\d{11}$/;
-
-    var newPhone =reg.test(phone.value);
-
-    if(reg.test(phone.value)) {
-        hintmessage.style.display = 'none';
-        nullmessage.style.display = 'none';
-        rightmessage.style.display = '-webkit-box';
-        phone.className = 'correct';
-        phoneFlag = true;
-    } else {
-        hintmessage.style.display = 'none';
-        nullmessage.style.display = '-webkit-box';
-        rightmessage.style.display = 'none';
-        phone.className = 'warning';
-        phoneFlag = false;
-    }
-}
-
-function onlyNum(evt) {
-    var charCode = (evt.which) ? evt.which : event.keyCode;
-    if (charCode > 31 && (charCode < 48 || charCode > 57))
-        return false;
-
-    return true;
-}
-
-var identify = document.getElementById("identify");
-
-identify.onclick = function(e) {
-    var allFlag = userFlag && passwordFlag && password2Flag && emailFlag && phoneFlag;
-    if(allFlag == true) {
-        alert("haha");
-        e.preventDefault();
-    } else {
-        alert("nonono");
-        e.preventDefault();
-    }
-};
